@@ -1,10 +1,10 @@
 function Track({ track }) {
-  const { title, artist, album } = track;
+  const { name, artists, album } = track;
   return (
     <>
-      <p>{title}</p>
-      <p>{artist}</p>
-      <p>{album}</p>
+      <p>{name}</p>
+      <p>{artists.map((artist) => artist.name).join(", ")}</p>
+      <p>{album.name}</p>
     </>
   );
 }
