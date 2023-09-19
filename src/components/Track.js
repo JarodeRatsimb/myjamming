@@ -1,11 +1,14 @@
+import styles from "../styles/Track.module.css";
+
 function Track({ track }) {
   const { name, artists, album } = track;
   return (
-    <>
-      <p>{name}</p>
-      <p>{artists.map((artist) => artist.name).join(", ")}</p>
-      <p>{album.name}</p>
-    </>
+    <div>
+      <p className={styles.title}>{name}</p>
+      <p className={styles.metadata}>
+        {artists.map((artist) => artist.name).join(", ")} | {album.name}
+      </p>
+    </div>
   );
 }
 

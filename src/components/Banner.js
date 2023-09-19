@@ -1,7 +1,9 @@
+import styles from "../styles/Banner.module.css";
+
 function Banner() {
   return (
-    <header>
-      <h1>Jammming</h1>
+    <header className={styles.bannerContainer}>
+      <h1 className={styles.banner}>Jammming</h1>
     </header>
   );
 }

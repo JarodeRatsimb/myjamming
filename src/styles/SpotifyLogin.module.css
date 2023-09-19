@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    height: 70vh; /* Make the container take up the full viewport height */
+}
+
+.logo {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 50px;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #1db964;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.caption {
+    position: absolute;
+    bottom: 0;
+}

@@ -1,4 +1,5 @@
 import Track from "./Track";
+import styles from "../styles/TrackList.module.css";
 
 function TrackList({ tracks, button, addToPlaylist, deleteFromPlaylist }) {
   const handleClick = (track) => {
@@ -9,11 +10,16 @@ function TrackList({ tracks, button, addToPlaylist, deleteFromPlaylist }) {
   return (
     <>
       {tracks ? (
-        <ul>
+        <ul className={styles.ulTracks}>
           {tracks.map((track) => (
-            <li key={track.id}>
+            <li className={styles.listContainer} key={track.id}>
               <Track track={track} />
-              <button onClick={() => handleClick(track)}>{button}</button>
+              <button
+                className={styles.button}
+                onClick={() => handleClick(track)}
+              >
+                {button}
+              </button>
             </li>
           ))}
         </ul>

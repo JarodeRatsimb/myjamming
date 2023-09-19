@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+
+.bannerContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.banner {
+  font-family: "Kaushan Script", cursive;
+  font-size: 50px;
+}

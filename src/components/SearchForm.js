@@ -1,14 +1,12 @@
-import { useState } from "react";
 import axios from "axios";
+import styles from "../styles/SearchForm.module.css";
 
-function SearchForm({ searchValue, myToken }) {
-  const [valInForm, setValInForm] = useState("");
-
+function SearchForm({ searchValue, myToken, handleChange, valInForm }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.get(
-        `https://api.spotify.com/v1/search?q=${valInForm}&type=track`,
+        `https://api.spotify.com/v1/search?q=${valInForm}&type=track&limit=10`,
         {
           headers: {
             Authorization: `Bearer ${myToken}`,
@@ -21,13 +19,15 @@ function SearchForm({ searchValue, myToken }) {
     }
   };
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
+    <form className={styles.searchForm} onSubmit={(e) => handleSubmit(e)}>
       <input
+        className={styles.searchBox}
         type="text"
-        onChange={(e) => setValInForm(e.target.value)}
+        onChange={(e) => handleChange(e.target.value)}
         value={valInForm}
+        placeholder="Search songs to add to Playlist"
       />
-      <button>Search</button>
+      <button className={styles.searchButton}>Search</button>
     </form>
   );
 }
