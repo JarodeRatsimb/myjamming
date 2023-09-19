@@ -9,11 +9,12 @@ function Timer({ initialSeconds }) {
     const interval = setInterval(() => {
       if (seconds > 0) {
         setSeconds(seconds - 1);
+        localStorage.setItem("initialSeconds", seconds - 1);
       } else {
         clearInterval(interval);
       }
     }, 1000);
-
+    // console.log(seconds);
     // Cleanup the interval when the component unmounts
     return () => clearInterval(interval);
   }, [seconds]);
@@ -31,7 +32,11 @@ function Timer({ initialSeconds }) {
         </p>
         <button
           className={`${styles.flexItem} ${styles.button}`}
-          onClick={() => (window.location.href = window.location.origin)}
+          onClick={() => {
+            localStorage.removeItem("initialSeconds");
+            window.location.href =
+              "https://jaroderatsimb.github.io/myjammming/";
+          }}
         >
           Log out
         </button>

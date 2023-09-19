@@ -3,7 +3,7 @@ import styles from "../styles/SpotifyLogin.module.css";
 
 function SpotifyLogin() {
   const clientId = "10b0c0df1a4646c4b5058fc052b903ab";
-  const redirectUri = "https://JarodeRatsimb.github.io/myjammming";
+  const redirectUri = "http://localhost:3000";
 
   const handleLogin = () => {
     const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(
@@ -14,7 +14,7 @@ function SpotifyLogin() {
 
   return (
     <main className={styles.container}>
-      <p className={styles.logo}>Jamming</p>
+      <p className={styles.logo}>Jammming</p>
       <button className={styles.button} onClick={handleLogin}>
         Log in with Spotify
       </button>

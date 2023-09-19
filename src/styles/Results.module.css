@@ -9,3 +9,14 @@
   flex-direction: column;
   align-items: center;
 }
+
+.clearSearch {
+  padding: 10px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #1db964;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  color: #000;
+}

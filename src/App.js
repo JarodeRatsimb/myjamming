@@ -12,7 +12,9 @@ function App() {
   const [userPlaylist, setUserPlaylist] = useState([]);
   const [myToken, setMyToken] = useState(null);
   const [valInForm, setValInForm] = useState("");
-  const [initialSeconds, setInitialSeconds] = useState(null);
+  const [initialSeconds, setInitialSeconds] = useState(
+    localStorage.getItem("initialSeconds") || null
+  );
 
   const isCallback = window.location.hash.startsWith("#access_token=");
 
@@ -43,14 +45,24 @@ function App() {
     setValInForm(value);
   };
 
+  const handleClearSearch = () => {
+    setTracks([]);
+    setValInForm("");
+  };
+
   useEffect(() => {
     // Parse the access token from the URL
     const urlParams = new URLSearchParams(window.location.hash.substring(1));
     const accessToken = urlParams.get("access_token");
 
-    const expiration = parseInt(urlParams.get("expires_in"), 10);
-    setInitialSeconds(expiration);
+    if (!localStorage.getItem("initialSeconds")) {
+      const expiration = parseInt(urlParams.get("expires_in"), 10);
 
+      if (!isNaN(expiration)) {
+        setInitialSeconds(expiration);
+        localStorage.setItem("initialSeconds", expiration);
+      }
+    }
     // Store the access token in local storage or state as needed
     setMyToken(accessToken);
   }, []);
@@ -68,9 +80,13 @@ function App() {
           />
           <div className={styles.container}>
             <div className={styles.results}>
-              <Results tracks={tracks} addToPlaylist={addToPlaylist} />
+              <Results
+                tracks={tracks}
+                addToPlaylist={addToPlaylist}
+                handleClearSearch={handleClearSearch}
+              />
             </div>
-            <div className={styles.playlist}>
+            <div className={styles.results}>
               <PlayList
                 tracks={userPlaylist}
                 deleteFromPlaylist={deleteFromPlaylist}

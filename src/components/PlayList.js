@@ -65,6 +65,7 @@ function PlayList({ tracks, deleteFromPlaylist, myToken, handleClickNew }) {
   };
 
   const handleClickRedirect = () => {
+    localStorage.removeItem("initialSeconds");
     window.location.href = playlistURL;
   };
 
@@ -92,7 +93,9 @@ function PlayList({ tracks, deleteFromPlaylist, myToken, handleClickNew }) {
           button="-"
           deleteFromPlaylist={deleteFromPlaylist}
         />
-        <button className={styles.button}>Save to Spotify</button>
+        <button type="submit" className={styles.button}>
+          Save to Spotify
+        </button>
       </form>
       <Modal
         isOpen={isModalOpen}

@@ -12,10 +12,10 @@
   border-radius: 10px;
   background-color: #282424;
   color: #fff;
-  padding-left: 20px;
   margin-top: 15px;
   font-size: 30px;
   font-weight: bold;
+  text-align: center;
 }
 
 .button {
@@ -26,4 +26,5 @@
   border: none;
   border-radius: 50px;
   cursor: pointer;
+  color: #000;
 }

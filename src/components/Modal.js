@@ -12,7 +12,8 @@ function Modal({
   useEffect(() => {
     if (time)
       setTimeout(() => {
-        window.location.href = window.location.origin;
+        localStorage.removeItem("initialSeconds");
+        window.location.href = "https://jaroderatsimb.github.io/myjammming/";
       }, 3000);
   }, [time]);
 
@@ -21,11 +22,11 @@ function Modal({
   return (
     <div className={styles.modal}>
       <div className={styles.modalContent}>
-        {time ? (
-          <span className={styles.close} onClick={onClose}>
-            &times;
-          </span>
-        ) : null}
+        {/* {time ? ( */}
+        <span className={styles.close} onClick={onClose}>
+          &times;
+        </span>
+        {/* ) : null} */}
         <p>{message}</p>
         {message === "Your Playlist has been created successfully!" ? (
           <div className={styles.dialogue}>

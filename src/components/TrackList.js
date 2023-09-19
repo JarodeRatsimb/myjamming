@@ -8,13 +8,14 @@ function TrackList({ tracks, button, addToPlaylist, deleteFromPlaylist }) {
   };
 
   return (
-    <>
+    <div className={styles.outsideDiv}>
       {tracks ? (
         <ul className={styles.ulTracks}>
           {tracks.map((track) => (
             <li className={styles.listContainer} key={track.id}>
               <Track track={track} />
               <button
+                type="button"
                 className={styles.button}
                 onClick={() => handleClick(track)}
               >
@@ -26,7 +27,7 @@ function TrackList({ tracks, button, addToPlaylist, deleteFromPlaylist }) {
       ) : (
         <p>Nada Yet</p>
       )}
-    </>
+    </div>
   );
 }
 
