@@ -3,7 +3,7 @@ import styles from "../styles/SpotifyLogin.module.css";
 
 function SpotifyLogin() {
   const clientId = "10b0c0df1a4646c4b5058fc052b903ab";
-  const redirectUri = "https://JarodeRatsimb.github.io/jammming";
+  const redirectUri = "https://JarodeRatsimb.github.io/myjammming";
 
   const handleLogin = () => {
     const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(
