@@ -12,7 +12,7 @@ Jammming is a spotify playlist maker web app created with react. It utilizes spo
 - CSS
 
 ## Run
-[Jammming](https://jaroderatsimb.github.io/myjammming) (currently unaccessible to the current public)
+[Jammming](https://jaroderatsimb.github.io/myjammming) (currently unaccessible to the general public)
 
 ## More
 
